@@ -3,8 +3,10 @@ let currentResult = defaultResult;
 
 function add(num1, num2) {
     const result = num1 + num2;
-    alert(result);
+    return result;
 }
+ currentResult = add(5, 6);
+
 currentResult = (currentResult + 10) * 3 / 2 - 1;
 let calculationDescription = '(' + defaultResult + ' + 10) * 3 / 2 - 1';
 
