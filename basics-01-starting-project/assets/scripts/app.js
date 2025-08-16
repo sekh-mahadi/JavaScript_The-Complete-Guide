@@ -1,6 +1,6 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
-
+let logEntries = [];
   function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
     const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
     outputResult(currentResult, calcDescription);
@@ -10,6 +10,7 @@ function add(num1, num2) {
   const initialResult = currentResult;
   currentResult = currentResult + enteredNumber;
   createAndWriteOutput('+', initialResult, enteredNumber);
+  logEntries.push(enteredNumber);
 }
 
 function subtract(num1, num2) {
@@ -17,6 +18,14 @@ function subtract(num1, num2) {
   const initialResult = currentResult;
   currentResult = currentResult - enteredNumber;
   createAndWriteOutput('-', initialResult, enteredNumber);
+  const logEntry = {
+    operation: 'SUBTRACT',
+    prevResult: initialResult,
+    number: enteredNumber,
+    result: currentResult
+  };
+  logEntries.push(logEntry);
+  console.log(logEntries);
 }
 
 function multiply(num1, num2) {
